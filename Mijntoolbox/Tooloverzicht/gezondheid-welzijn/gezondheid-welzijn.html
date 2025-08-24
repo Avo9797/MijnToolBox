@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MijnToolbox.nl</title>
+  <link rel="stylesheet" href="http://127.0.0.1:5500/style.css" />
+</head>
+<body>
+
+  <!-- Header wordt hier ingeladen -->
+  <div id="header"></div>
+
+  <!-- Hoofdinhoud-->
+  <main>
+    <div class="container">
+<nav style="padding:0px" aria-label="Breadcrumb" class="breadcrumb">
+<ul>
+<li><a href="http://127.0.0.1:5500/tooloverzicht/tooloverzicht.html">Tooloverzicht -&gt;&nbsp;</a></li>
+<li><a href="http://127.0.0.1:5500/tooloverzicht/gezondheid-welzijn/gezondheid-welzijn.html">Gezondheid Welzijn -&gt;&nbsp;</a></li>
+<li><a href="http://127.0.0.1:5500/tooloverzicht/gezondheid-welzijn/gezondheid-welzijn.html">Gezondheid & Welzijn</a></li>
+</ul>
+</nav>
+
+      Hallo
+    </div>
+  </main>
+
+  <!-- Footer wordt hier ingeladen -->
+  <div id="footer"></div>
+
+  <!-- JavaScript om header.html en footer.html in te laden -->
+  <script>
+    // Header inladen
+    fetch('http://127.0.0.1:5500/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+
+    // Footer inladen
+    fetch('http://127.0.0.1:5500/footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

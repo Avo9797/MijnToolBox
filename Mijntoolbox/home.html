@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>home - MijnToolbox.nl</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="header"></div>
+  <main>
+    <div class="container">
+<nav style="padding:0px" aria-label="Breadcrumb" class="breadcrumb">
+<ul>
+<li><a href="http://127.0.0.1:5500/home.html">Home</a></li>
+</ul>
+</nav>
+
+Test
+    </div>
+  </main>
+  <div id="footer"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+  </script>
+</body>
+</html>

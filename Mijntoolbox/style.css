@@ -1,0 +1,123 @@
+.breadcrumb {
+  color: #0074d9;
+  text-decoration: none;
+
+}
+.breadcrumb a {
+  color: #0074d9;
+  text-decoration: none;
+  padding: 0px;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+  text-decoration: bold;
+  background: white;
+  font-weight: bold;
+
+}
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base body styling */
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  
+}
+a {
+	color: white;
+}
+/* Header */
+header { 
+	background-color: #202020;
+	color: #ffffff;
+	padding: 15px;
+	display: flex;
+	justify-content: right;
+}
+
+/* Main content area */
+main {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+/* Footer */
+footer {
+  background-color: #F0F0F0;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+/* Basis menu */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav > ul {
+  display: flex;
+}
+
+nav ul li {
+  position: relative; /* nodig voor submenu positioning */
+}
+
+nav ul li a {
+  display: block;
+  padding: 12px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background: #444;
+}
+
+/* Submenu */
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #202020;
+  min-width: 200px;
+}
+
+nav ul ul li a {
+  padding: 10px;
+}
+
+/* Laat submenu zien bij hover */
+nav ul li:hover > ul {
+  display: block;
+}
+
+/* Sub-submenu */
+nav ul ul ul {
+  display: none;
+  position: absolute;
+  top: 0;
+  background: #202020;
+  min-width: 200px;
+  z-index: 1000;
+  right: 100%;
+  left: auto;
+
+}
