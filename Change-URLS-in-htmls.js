@@ -1,28 +1,30 @@
 const fs = require('fs');
 const path = require('path');
 
-function replaceInFile(filePath) {
+const directory = './mijntoolbox'; // Of waar je HTML-bestanden staan
+
+function fixHrefInFile(filePath) {
   let content = fs.readFileSync(filePath, 'utf8');
-  let newContent = content
-    .replace(/http:\/\/127\.0\.0\.1:5500\/Mijntoolbox\/footer\.html/g, 'http://127.0.0.1:5500/mijntoolbox/footer.html')
-    .replace(/http:\/\/127\.0\.0\.1:5500\/Mijntoolbox\/header\.html/g, 'http://127.0.0.1:5500/mijntoolbox/header.html')
-    .replace(/http:\/\/127\.0\.0\.1:5500\/style.css/g, 'http://127.0.0.1:5500/mijntoolbox/style.css');
-  if (newContent !== content) {
-    fs.writeFileSync(filePath, newContent, 'utf8');
-    console.log(`Updated: ${filePath}`);
-  }
+
+  // Fix dubbele slashes behalve na http:
+  content = content.replace(/(href="[^"]*?)([^:])\/\/+/g, '$1$2/');
+
+  // Fix foutieve verwijzing naar tooloverzicht/tooloverzicht.html
+  content = content.replace(/mijntoolbox\/tooloverzicht\/tooloverzicht\.html/g, 'mijntoolbox/tooloverzicht.html');
+
+  fs.writeFileSync(filePath, content, 'utf8');
+  console.log(`Aangepast: ${filePath}`);
 }
 
 function walkDir(dir) {
   fs.readdirSync(dir).forEach(file => {
     const fullPath = path.join(dir, file);
-    if (fs.statSync(fullPath).isDirectory()) {
+    if (fs.lstatSync(fullPath).isDirectory()) {
       walkDir(fullPath);
     } else if (file.endsWith('.html')) {
-      replaceInFile(fullPath);
+      fixHrefInFile(fullPath);
     }
   });
 }
 
-// Start from current directory
-walkDir(__dirname);
+walkDir(directory);
