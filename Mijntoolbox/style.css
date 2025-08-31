@@ -121,3 +121,18 @@ nav ul ul ul {
   left: auto;
 
 }
+
+.Center {
+  text-align: center;
+}
+
+.intro-blok {
+  display: flex;
+  align-items: flex-start; /* tekst bovenaan uitlijnen */
+  gap: 60px; /* ruimte tussen tekst en afbeelding */
+}
+
+.intro-blok img {
+  width: 300px;   /* pas grootte aan */
+  height: auto;
+}
