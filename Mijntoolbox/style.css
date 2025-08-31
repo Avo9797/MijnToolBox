@@ -1,3 +1,24 @@
+.intro-blok {
+  display: flex;
+  align-items: flex-start; /* tekst bovenaan uitlijnen */
+  gap: 20px; /* ruimte tussen tekst en afbeelding */
+}
+
+.intro-blok img {
+  width: 200px;   /* pas grootte aan */
+  height: auto;
+}
+.Center {
+  text-align: center;
+}
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
 .breadcrumb {
   color: #0074d9;
   text-decoration: none;
